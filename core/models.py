@@ -18,3 +18,8 @@ class Habit(models.Model):
 class Record(models.Model):
     date = models.DateField(default=date.today)
     number_completed = models.PositiveIntegerField()
+    habit = models.ForeignKey(
+        'Habit', on_delete=models.CASCADE, blank=True, null=True)
+
+    class Meta:
+        unique_together = ['date', 'habit']
