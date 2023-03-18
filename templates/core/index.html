@@ -3,5 +3,10 @@
 {% block title %}Habit Tracker Home{% endblock %}
 
 {% block content %}
-<h1>Habit Tracker Homepage</h1>
+<h1>My Habits:</h1>
+<ul>
+    {% for habit in habits %}
+    <li>{{ habit }}</li>
+    {% endfor %}
+</ul>
 {% endblock %}

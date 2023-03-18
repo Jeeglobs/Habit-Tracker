@@ -6,9 +6,10 @@ from .forms import HabitForm
 @login_required
 def list_habits(request):
     user = request.user
-    return render(request, 'core/index.html', {'user': user})
+    return render(request, 'core/index.html', {'uesr': user})
 
 
+@login_required
 def add_habit(request):
     if request.method == 'POST':
         new_habit = HabitForm(request.POST)
