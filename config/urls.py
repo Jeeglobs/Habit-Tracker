@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
     path('', views.list_habits, name='home'),
+    path('add-habit', views.add_habit, name='add_habit')
 ]
