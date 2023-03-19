@@ -72,9 +72,18 @@ def add_record(request, pk):
 #         if new_record.is_valid():
 #             new_record.save()
 #             return redirect('habit_details', pk)
-#     form = RecordForm()
-#     return render(request, 'edit_record.html',
-#                   {'form': form, 'record': record})
+#     form = RecordForm(instance=record)
+#     return render(request, 'edit_record.html', {'form': form, 'pk': pk})
+
+
+@login_required
+def delete_record(request, pk):
+    record = get_object_or_404(Record, pk=pk)
+    if request.method == 'POST':
+        record.delete()
+        return redirect('home')
+    return render(request, 'core/delete_record.html',
+                  {'record': record, 'pk': pk})
 
 
 @login_required

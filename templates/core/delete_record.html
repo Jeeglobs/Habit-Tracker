@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Record{% endblock %}
+
+{% block content %}
+<h1>Record Details</h1>
+<br>
+<h2>Date: {{ record.date }}</h2>
+<h3>Number Completed: {{ record.number_completed }}</h3>
+<br>
+<h4>Are you sure you want to delete this record?</h4>
+<form method='POST'>
+    {% csrf_token %}
+    <button type='submit'>Delete</button>
+</form>
+{% endblock %}
