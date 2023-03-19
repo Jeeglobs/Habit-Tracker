@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Habit Details{% endblock %}
+{% block title %}Delete Habit{% endblock %}
 
 {% block content %}
-<h1>Habit Details</h1>
+<h1>Delete Habit</h1>
 <br>
 <h2>{{ habit }}</h2>
 <h3>Goal: {{ habit.target }}</h3>
@@ -18,6 +18,9 @@
     </tr>
 </table>
 <br>
-<button><a href="{% url 'edit_habit' habit.pk %}">Edit Habit</a></button>
-<button><a href="{% url 'delete_habit' habit.pk %}">Delete Habit</a></button>
+<h4>Are you sure you want to delete this habit and all of its records?</h4>
+<form method='POST'>
+    {% csrf_token %}
+    <button type='submit'>Delete</button>
+</form>
 {% endblock %}
