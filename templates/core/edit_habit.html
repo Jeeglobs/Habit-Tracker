@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Add Habit{% endblock %}
+{% block title %}Edit Habit{% endblock %}
 
 {% block content %}
-<h1>Add New Habit</h1>
+<h1>Edit Habit Details</h1>
 <br>
 <form method='POST'>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type='submit'>Add</button>
+    <button type='submit'>Save Changes</button>
 </form>
+<br>
 {% endblock %}
