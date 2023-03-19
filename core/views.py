@@ -60,4 +60,5 @@ def add_record(request, pk):
             new_record.save()
             return redirect('habit_details', pk)
     form = RecordForm()
-    return render(request, 'core/add_record.html', {'form': form, 'habit': habit})
+    return render(request, 'core/add_record.html',
+                  {'form': form, 'habit': habit})

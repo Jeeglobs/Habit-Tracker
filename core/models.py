@@ -20,7 +20,11 @@ class Record(models.Model):
     date = models.DateField(default=date.today)
     number_completed = models.PositiveIntegerField()
     habit = models.ForeignKey(
-        'Habit', on_delete=models.CASCADE, blank=True, null=True)
+        'Habit', related_name='records', on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.date, self.habit, self.number_completed
 
     class Meta:
         unique_together = ['date', 'habit']
+        ordering = ['-date']
