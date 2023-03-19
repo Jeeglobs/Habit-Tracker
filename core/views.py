@@ -62,3 +62,22 @@ def add_record(request, pk):
     form = RecordForm()
     return render(request, 'core/add_record.html',
                   {'form': form, 'habit': habit})
+
+
+# @login_required
+# def edit_record(request, pk):
+#     record = get_object_or_404(Record, pk=pk)
+#     if request.method == 'POST':
+#         new_record = RecordForm(request.POST, instance=record)
+#         if new_record.is_valid():
+#             new_record.save()
+#             return redirect('habit_details', pk)
+#     form = RecordForm()
+#     return render(request, 'edit_record.html',
+#                   {'form': form, 'record': record})
+
+
+@login_required
+def view_record_details(request, pk):
+    record = get_object_or_404(Record, pk=pk)
+    return render(request, 'core/record_details.html', {'record': record})
