@@ -30,7 +30,7 @@ urlpatterns = [
          name='habit_details'),
 
     path('add-record/<int:pk>', views.add_record, name='add_record'),
-    # path('edit-record/<int:pk>', views.edit_record, name='edit_record'),
+    path('edit-record/<int:pk>', views.edit_record, name='edit_record'),
     path('delete-record<int:pk>', views.delete_record, name='delete_record'),
     path('record-details/<int:pk>', views.view_record_details,
          name='record_details'),
