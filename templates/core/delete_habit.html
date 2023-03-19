@@ -16,6 +16,17 @@
         <th>Number Completed</th>
         <th>Goal Reached?</th>
     </tr>
+    {% for record in habit.records.all %}
+    <tr>
+        <td><a href="{% url 'record_details' record.pk %}">{{ record.date }}</a></td>
+        <td>{{ record.number_completed }}</td>
+        {% if record.number_completed >= record.habit.target %}
+            <td>YES</td>
+        {% else %}
+            <td>NO</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
 </table>
 <br>
 <h4>Are you sure you want to delete this habit and all of its records?</h4>
