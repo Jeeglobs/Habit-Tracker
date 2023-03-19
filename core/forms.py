@@ -6,7 +6,7 @@ class HabitForm(forms.ModelForm):
 
     class Meta:
         model = Habit
-        fields = ('name', 'target')
+        fields = ('name', 'target', 'description')
 
 
 class RecordForm(forms.ModelForm):
