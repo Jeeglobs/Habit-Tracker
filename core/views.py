@@ -51,11 +51,13 @@ def view_habit_details(request, pk):
 
 @login_required
 def add_record(request, pk):
-    # habit = get_object_or_404(Habit, pk=pk)
+    habit = get_object_or_404(Habit, pk=pk)
     if request.method == 'POST':
-        new_record = RecordForm(request.POST)
-        if new_record.is_valid():
+        record_form = RecordForm(request.POST)
+        if record_form.is_valid():
+            new_record = record_form.save(commit=False)
+            new_record.habit = habit
             new_record.save()
             return redirect('habit_details', pk)
     form = RecordForm()
-    return render(request, 'core/add_record.html', {'form': form})
+    return render(request, 'core/add_record.html', {'form': form, 'habit': habit})
