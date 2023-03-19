@@ -3,7 +3,17 @@
 {% block title %}Habit Details{% endblock %}
 
 {% block content %}
-<h1>Details for {{ habit }}</h1>
-<h3>Goal: {{ habit.goal }}</h3>
-
+<h1>Habit Details</h1>
+<h2>{{ habit }}</h2>
+<h3>Goal: {{ habit.target }}</h3>
+<h3>Description:</h3>
+<p>{{ habit.description }}</p>
+<br>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Number Completed</th>
+        <th>Goal Reached?</th>
+    </tr>
+</table>
 {% endblock %}

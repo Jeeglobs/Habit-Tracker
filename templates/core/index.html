@@ -6,7 +6,7 @@
 <h1>My Habits:</h1>
 <ul>
     {% for habit in habits %}
-    <li>{{ habit }}</li>
+    <li><a href="{% url 'habit_details' habit.pk %}">{{ habit }}</a></li>
     {% endfor %}
 </ul>
 <button><a href="{% url 'add_habit' %}">Add New Habit</a></button>
