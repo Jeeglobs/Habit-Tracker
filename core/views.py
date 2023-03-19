@@ -64,16 +64,16 @@ def add_record(request, pk):
                   {'form': form, 'habit': habit})
 
 
-# @login_required
-# def edit_record(request, pk):
-#     record = get_object_or_404(Record, pk=pk)
-#     if request.method == 'POST':
-#         new_record = RecordForm(request.POST, instance=record)
-#         if new_record.is_valid():
-#             new_record.save()
-#             return redirect('habit_details', pk)
-#     form = RecordForm(instance=record)
-#     return render(request, 'edit_record.html', {'form': form, 'pk': pk})
+@login_required
+def edit_record(request, pk):
+    record = get_object_or_404(Record, pk=pk)
+    if request.method == 'POST':
+        new_record = RecordForm(request.POST, instance=record)
+        if new_record.is_valid():
+            new_record.save()
+            return redirect('record_details', pk)
+    form = RecordForm(instance=record)
+    return render(request, 'core/edit_record.html', {'form': form, 'pk': pk})
 
 
 @login_required

@@ -8,6 +8,6 @@
 <h2>Date: {{ record.date }}</h2>
 <h3>Number Completed: {{ record.number_completed }}</h3>
 <br>
-<button><a href="">Edit Record</a></button>
+<button><a href="{% url 'edit_record' record.pk %}">Edit Record</a></button>
 <button><a href="{% url 'delete_record' record.pk %}">Delete Record</a></button>
 {% endblock %}
