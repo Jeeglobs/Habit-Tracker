@@ -33,6 +33,15 @@ def edit_habit(request, pk):
     return render(request, 'core/edit_habit.html', {'form': form, 'pk': pk})
 
 
+@login_required
+def delete_habit(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    if request.method == 'POST':
+        habit.delete()
+        return redirect('home')
+    return render(request, 'core/delete_habit.html', {'habit': habit, 'pk': pk})
+
+
 def view_habit_details(request, pk):
     habit = get_object_or_404(Habit, pk=pk)
     return render(request, 'core/habit_details.html', {'habit': habit})
