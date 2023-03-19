@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .models import Habit
 from .forms import HabitForm
 
 
 @login_required
 def list_habits(request):
-    user = request.user
-    return render(request, 'core/index.html', {'user': user})
+    habits = Habit.objects.all
+    return render(request, 'core/index.html', {'habits': habits})
 
 
 @login_required
