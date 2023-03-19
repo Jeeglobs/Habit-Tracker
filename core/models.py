@@ -10,6 +10,7 @@ class User(AbstractUser):
 class Habit(models.Model):
     name = models.CharField(max_length=100)
     target = models.PositiveIntegerField()
+    description = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.name

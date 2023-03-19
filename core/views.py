@@ -19,3 +19,8 @@ def add_habit(request):
             return redirect('home')
     form = HabitForm()
     return render(request, 'core/add_habit.html', {'form': form})
+
+
+def view_habit_details(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+    return render(request, 'core/habit_details.html', {'habit': habit})
