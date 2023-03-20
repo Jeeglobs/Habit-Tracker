@@ -5,7 +5,8 @@
 {% block content %}
 <h1>Record Details</h1>
 <br>
-<h2>Date: {{ record.date }}</h2>
+<h2>{{ record.habit }}</h2>
+<h3>Date: {{ record.date }}</h3>
 <h3>Number Completed: {{ record.number_completed }}</h3>
 <br>
 <button><a href="{% url 'edit_record' record.pk %}">Edit Record</a></button>

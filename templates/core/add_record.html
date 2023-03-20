@@ -5,6 +5,7 @@
 {% block content %}
 <h1>Add New Record</h1>
 <br>
+<h2>{{ habit }}</h2>
 <form method='POST'>
     {% csrf_token %}
     {{ form.as_p }}

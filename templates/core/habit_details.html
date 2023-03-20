@@ -21,9 +21,9 @@
         <td><a href="{% url 'record_details' record.pk %}">{{ record.date }}</a></td>
         <td>{{ record.number_completed }}</td>
         {% if record.number_completed >= record.habit.target %}
-            <td>YES</td>
+            <td>✅</td>
         {% else %}
-            <td>NO</td>
+            <td>❌</td>
         {% endif %}
     </tr>
     {% endfor %}
